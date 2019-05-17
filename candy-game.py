@@ -22,17 +22,132 @@ def generate_rune(board):
             board[row_index][column_index] = random.choice(["X", "O", "H"])
 
 def delete_runes(board, row, column, choosen_rune):
-    for row_index in range(row - 1, row + 2):
-        if row_index == row:
-            for column_index in range(column - 1, column +2):
-                if board[row_index][column_index] == board[row][column]:
-                    board[row_index][column_index] = "-"
-                else:
-                    if board[row_index][column_index] == choosen_rune:
+    if row >= 1 and row < board_size - 1:
+        for_centric_row(board, row, column, choosen_rune)
+    elif row == board_size - 1:
+        for_last_row(board, row, column, choosen_rune)
+    elif row == 0:
+        for_first_row(board, row, column, choosen_rune)
+
+def for_centric_row(board, row, column, choosen_rune):
+    if column == 0:
+        for row_index in range(row - 1, row+2):
+            if row_index == row:
+                for column_index in range(column, column +2):
+                    if board[row_index][column_index] == board[row][column]:
                         board[row_index][column_index] = "-"
-        else:
-            if board[row_index][column] == choosen_rune:
-                board[row_index][column] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+    elif column == board_size - 1:
+        for row_index in range(row - 1, row+2):
+            if row_index == row:
+                for column_index in range(column - 1, column+1):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+    else:
+        for row_index in range(row- 1, row+2):
+            if row_index == row:
+                for column_index in range(column - 1, column +2):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+def for_last_row(board, row, column, choosen_rune):
+    if column == 0:
+        for row_index in range(row - 1, row+1):
+            if row_index == row:
+                for column_index in range(column, column +2):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+    elif column == board_size - 1:
+        for row_index in range(row - 1, row+1):
+            if row_index == row:
+                for column_index in range(column - 1, column+1):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+    else:
+        for row_index in range(row- 1, row+1):
+            if row_index == row:
+                for column_index in range(column - 1, column +2):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+def for_first_row(board, row, column, choosen_rune):
+    if column == 0:
+        for row_index in range(row, row + 2):
+            if row_index == row:
+                for column_index in range(column, column +2):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+    elif column == board_size - 1:
+        for row_index in range(row, row + 2):
+            if row_index == row:
+                for column_index in range(column - 1, column+1):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
+
+    else:
+        for row_index in range(row, row + 2):
+            if row_index == row:
+                for column_index in range(column - 1, column +2):
+                    if board[row_index][column_index] == board[row][column]:
+                        board[row_index][column_index] = "-"
+                    else:
+                        if board[row_index][column_index] == choosen_rune:
+                            board[row_index][column_index] = "-"
+            else:
+                if board[row_index][column] == choosen_rune:
+                    board[row_index][column] = "-"
 
 candy_game = create_board(board_size)
 
@@ -40,13 +155,12 @@ generate_rune(candy_game)
 
 print_board(candy_game)
 
-life = 3
+life = 5
 while life > 0:
     row = int(input("Choose one row: "))
     column = int(input("Choose one column: "))
     choosen_rune = candy_game[row][column]
 
     delete_runes(candy_game, row, column, choosen_rune)
-
     print_board(candy_game)
     life -=1

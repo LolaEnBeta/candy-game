@@ -40,10 +40,13 @@ generate_rune(candy_game)
 
 print_board(candy_game)
 
-row = int(input("Choose one row: "))
-column = int(input("Choose one column: "))
-choosen_rune = candy_game[row][column]
+life = 3
+while life > 0:
+    row = int(input("Choose one row: "))
+    column = int(input("Choose one column: "))
+    choosen_rune = candy_game[row][column]
 
-delete_runes(candy_game, row, column, choosen_rune)
+    delete_runes(candy_game, row, column, choosen_rune)
 
-print_board(candy_game)
+    print_board(candy_game)
+    life -=1
